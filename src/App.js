@@ -1,11 +1,12 @@
+import ListContainer from "./containers/ListContainer/ListContainer"
+import  NavBar  from "./components/NavBar/NavBar";
 import './App.css';
-import { NavBar } from "./components/nav-bar";
-
 
 function App() {
   return (
     <div className="App">
       <NavBar />
+      <ListContainer />
       <h2>Listo</h2>
     </div>
   );
