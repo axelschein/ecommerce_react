@@ -3,7 +3,7 @@ import Card from "../../components/Card/Card";
 import "./listContainer.css";
 
 const ListContainer = () => {
-    return (
+    return ( 
         <div className="wrap">
             <Card />
             <Card />
