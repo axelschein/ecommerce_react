@@ -2,6 +2,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import NavBar  from "./components/NavBar/NavBar";
 import Greetings from "./components/Greetings/greetings";
 import BotonContador from "./components/botonContador/botonContador";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         onClick1={(num) => console.log(`mi componente me dio un click ${num}`)}
         onClick2={(num) => console.log(`mi componente me dio un click ${num}`)}
       ></BotonContador>
+      <ItemDetailContainer />
     </div>
   );
 }
