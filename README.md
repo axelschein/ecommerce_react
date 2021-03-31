@@ -1,3 +1,11 @@
+
+Cumpliendo con la primera entrega del proyecto final, el mismo cuenta con el Navbar con el cart, el catalogo y el detalle del producto.
+
+Cada componente esta en su carpeta con el nombre que vimos en clase, el js o jsx tiene el mismo nombre. Si es necesario hay un css para los estilos por cada componente.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
