@@ -29,6 +29,6 @@ export default function ItemListContainer() {
 
     // Implementar mock invocando a getItems() y utilizando el resolver then
     return <> {itemId}
-        <ItemDetail item={item} />  /* JSX que devuelva un ItemDetail (desafío 6b) */
+        <ItemDetail item={item} />  
         </>
 }

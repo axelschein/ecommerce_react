@@ -2,7 +2,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import NavBar  from "./components/NavBar/NavBar";
 import Greetings from "./components/Greetings/greetings";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
-import ItemCount from "./components/ItemCount/ItemCount";
+
 import './App.css';
 
 import { BrowserRouter, Switch, Route  } from "react-router-dom";
@@ -16,15 +16,16 @@ function App() {
         <Switch > 
           <Route exact path='/'>
             <Greetings nombre="Axel" />
+            <ItemListContainer />
             
           </Route>
           <Route path='/category/:categoryId'>
-            <ItemListContainer />
+            
             
           </Route>
           <Route path='/item/:itemId'>
             <ItemDetailContainer />
-            <ItemCount stock="5" initial={1} />
+            
           </Route>
           
           <Route path='*'>
@@ -37,8 +38,6 @@ function App() {
 
         </Switch >
         
-        
-        <h2>Listo</h2>
         
         
         

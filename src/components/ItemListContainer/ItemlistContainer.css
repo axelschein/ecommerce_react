@@ -6,7 +6,10 @@
 .wrap {
     display: flex;
     flex-direction: row;
-    padding-top: 70px;
+    height: 120vh;
+    justify-content: space-around;
+    padding-top: 20px;
+    flex-wrap: wrap;
     
     
 }
@@ -14,4 +17,5 @@ img {
     border-radius: 12px;
     height: 100%;
     width: 100%;
+   
 }
