@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./ItemCount.css";
 
 function ItemCount({ stock, initial, onAdd }) {
@@ -15,9 +15,9 @@ function ItemCount({ stock, initial, onAdd }) {
     } else setCount(count => count - 1);
   }
 
-  function agregar() {
-    alert(`Agregaste ${count} productos al carrito`);
-  }
+  // function agregar() {
+  //   alert(`Agregaste ${count} productos al carrito`);
+  // }
 
   return (
     <div className="botones">

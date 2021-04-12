@@ -1,4 +1,13 @@
 .img2 {
-    width: 50%;
-    height: 50%;
+    width: 45%;
+    height: 45%;
+}
+
+.titulo {
+    justify-content: center;
+    width: 100vw;
+}
+p {
+    justify-content: center;
+    width: 100vw;
 }

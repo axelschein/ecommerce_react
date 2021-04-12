@@ -6,20 +6,20 @@ import {Link} from "react-router-dom"
 export const NavBar = () => {
   return (
     <nav>
-        <div class="contain">
-            <ul class="navbar-left">
+        <div className="contain">
+            <ul className="navbar-left">
               <li>
                 <Link to='/' id="brandName" href="#">Cupcakes commerce</Link>
               </li>
             
               <li>
-                <Link to={`/category/1`} >Cupcakes</Link>
+                <Link to='/category/cupcakes' >Cupcakes</Link>
               </li>
               <li>
-                <Link to={`/category/2`} >Cakes</Link>
+                <Link to='/category/cakes' >Cakes</Link>
               </li>
               </ul> 
-              <ul class="navbar-right">
+              <ul className="navbar-right">
               <li><CartWidget /> </li>
             </ul> 
         </div> 

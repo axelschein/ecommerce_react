@@ -2,7 +2,8 @@ import React from "react";
 
 const CartWidget = () => {
     return(
-        <a href="#" id="cart"><i class="fa fa-shopping-cart"></i> Cart <span class="badge">3</span></a>
+        <button id="cart"><i className="fa fa-shopping-cart"></i><span className="badge">3</span></button>
+        
     );
 };
 

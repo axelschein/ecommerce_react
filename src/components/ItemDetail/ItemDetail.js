@@ -17,11 +17,11 @@ export default function ItemDetail({ item }) {
             <div className='container-img2'>
                 <img className="img2" src={item?.pictureUrl} alt="Cupcake"/>
             </div>
-            <h2>{item?.name}</h2>
-            <p>{item?.description}</p>
-            <div>${item?.price}</div>
+            <h2 className="titulo" >{item?.name}</h2>
+            <p className="description">{item?.description}</p>
+            <p className="precio">${item?.price}</p>
 
-            { count == 0 ?
+            { count === 0 ?
                     <ItemCount stock="5" initial={1} onAdd={addHandler} />
                         :
                     <Link to='/cart'> <button>Terminar mi compra</button>
