@@ -1,15 +1,25 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import "./ItemDetail.css";
 import  ItemCount  from "../ItemCount/ItemCount";
 import {Link} from 'react-router-dom';
+import { CartContext } from "../../context/CartContext";
 
 
 export default function ItemDetail({ item }) {
     const [count, setCount] = useState(0)
 
+    const {addItem, cart} = useContext(CartContext);
+
     const addHandler = (e)=>{
         console.log('se agrego un item', e)
-        setCount()
+        
+        addItem(item, e)
+        setCount(e)
+
+    }
+
+    const terminarCompra = () => {
+        addItem(item, count)
 
     }
  
@@ -24,7 +34,7 @@ export default function ItemDetail({ item }) {
             { count === 0 ?
                     <ItemCount stock="5" initial={1} onAdd={addHandler} />
                         :
-                    <Link to='/cart'> <button>Terminar mi compra</button>
+                    <Link to='/cart'> <button onClick={terminarCompra}>Terminar mi compra</button>
                     </Link>
             }
 

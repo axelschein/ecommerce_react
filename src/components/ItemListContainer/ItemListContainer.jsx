@@ -67,14 +67,12 @@ export default function ItemListContainer() {
 
     useEffect(()=>{  
       const promise = new Promise((resolve, reject)=>{
-        setTimeout(()=> {
-          if(categoryId) {
-            resolve(products.filter(e=>e.category === categoryId))
-          } else {
-            resolve(products)
-          }
-            
-        }, 2000)
+        if(categoryId) {
+          resolve(products.filter(e=>e.category === categoryId))
+        } else {
+          resolve(products)
+        }
+        
       })
     
     

@@ -63,10 +63,8 @@ const products = [
 
 const getItems = (id) => {
     return new Promise((resolve)=>{
-        setTimeout(()=>{
-          resolve(products.find((e)=> e.id === parseInt(id)))
-            
-        },2000)
+        resolve(products.find((e)=> e.id === parseInt(id)))
+        
     })
 }
 
