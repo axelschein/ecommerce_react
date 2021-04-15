@@ -9,32 +9,33 @@ import { BrowserRouter, Switch, Route  } from "react-router-dom";
 function App() {
   return (
 
-    <CartProvider>
-    <BrowserRouter >
-      <div className="App">            
-        <NavBar />
-
-        <Switch > 
-          <Route exact path='/'>
-            <ItemListContainer />
-          </Route>
-
-          <Route path='/category/:categoryId'>
-            <ItemListContainer />
-          </Route>
-
-
-          <Route path='/item/:itemId'>
-            <ItemDetailContainer />
-          </Route>
-
-        </Switch >
-        
-        
-      </div>
     
+    <BrowserRouter >
+      <CartProvider>
+        <div className="App">            
+          <NavBar />
+
+          <Switch > 
+            <Route exact path='/'>
+              <ItemListContainer />
+            </Route>
+
+            <Route path='/category/:categoryId'>
+              <ItemListContainer />
+            </Route>
+
+
+            <Route path='/item/:itemId'>
+              <ItemDetailContainer />
+            </Route>
+
+          </Switch >
+          
+          
+        </div>
+      </CartProvider>
     </BrowserRouter>
-    </CartProvider>
+    
   );
 }
 
