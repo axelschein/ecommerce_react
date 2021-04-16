@@ -8,7 +8,7 @@ import { CartContext } from "../../context/CartContext";
 export default function ItemDetail({ item }) {
     const [count, setCount] = useState(0)
 
-    const {cart, addItem} = useContext(CartContext);
+    const {addItem} = useContext(CartContext);
 
     const addHandler = (e)=>{
         console.log('se agregaron', e, 'item')

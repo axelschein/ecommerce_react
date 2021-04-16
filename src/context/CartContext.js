@@ -24,9 +24,14 @@ function CartProvider ({defaultValue = [], children}) {
 
         }
 
-        const dropCart = () => {
-            setCart ([]);
-        }
+        const removeItem = (itemId) =>{
+            const newCart = cart.filter(e => e.item.id !== itemId)
+            setCart(newCart)
+        }// Remover un item del cart por usando su id
+
+        const clear = ()=>{
+            setCart([])
+        } // Remover todos los items
 
         
 
