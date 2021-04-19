@@ -10,18 +10,14 @@ export default function ItemDetail({ item }) {
 
     const {addItem} = useContext(CartContext);
 
-    const addHandler = (e)=>{
-        console.log('se agregaron', e, 'item')
-        
-        addItem(item, e)
-        setCount(e)
-
-    }
-
-    const terminarCompra = () => {
+    const onAdd = (quantityToAdd) => {
+        const count = parseInt(quantityToAdd)
+        console.log('se agrego un item', count)
         addItem(item, count)
+        setCount(count)
+    } 
 
-    }
+    
  
     return <>
             <div className='container-img2'>
@@ -32,9 +28,9 @@ export default function ItemDetail({ item }) {
             <p className="precio">${item?.price}</p>
 
             { count === 0 ?
-                    <ItemCount stock="5" initial={1} onAdd={addHandler} />
+                    <ItemCount stock="5" initial={1} onAdd={onAdd} />
                         :
-                    <Link to='/cart'> <button onClick={terminarCompra}>Terminar mi compra</button>
+                    <Link to='/cart'> <button >Terminar mi compra</button>
                     </Link>
             }
 
