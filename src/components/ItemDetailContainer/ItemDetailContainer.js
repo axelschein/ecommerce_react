@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from "react-router-dom";
+import { getFirestore } from "../../firebase";
+
 
 const products = [
   {
@@ -62,22 +64,30 @@ const products = [
    
 
 const getItems = (id) => {
-    return new Promise((resolve)=>{
-        resolve(products.find((e)=> e.id === parseInt(id)))
-        
-    })
+
+    const db = getFirestore();
+    const itemsCollection = db.collection('items')
+
+    const item = itemsCollection.doc(id)
+    return item.get();
 }
 
 export default function ItemListContainer() {
     const [item, setItem] = useState([]);
-    const {itemId} =useParams()
+    const {itemId} = useParams()
     
 
     useEffect(() => {
 
         getItems(itemId)
         .then((products)=>{
-          setItem(products)
+          console.log('existe?', products.exists);
+          
+          if (products.exists){
+            setItem(products.data())
+
+          }
+          
         }) 
       }, [itemId])
     
