@@ -80,18 +80,18 @@ export default function ItemListContainer() {
 
     useEffect(() => {
 
-        getItems(itemId)
-        .then((products)=>{
-          console.log('existe?', products.exists);
-          
-          if (products.exists){
-            setItem(products.data())
-
-          }
-          
-        }) 
-      }, [itemId])
-    
-    return <ItemDetail item={ item } />  
+      getItems(itemId)
+      .then((products)=>{
+        console.log('existe?', products.exists);
         
+        if (products.exists){
+          setItem({id:products.id, ...products.data()})
+
+        }
+        
+      }) 
+    }, [itemId])
+  
+  return <ItemDetail item={ item } />  
+
 }
