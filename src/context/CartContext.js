@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
-    // array con items de este forma   {item:item, quantity: number}
+    
 const CartContext = React.createContext([]);
     
 
 function CartProvider ({children}) {
 
     const [cart, setCart] = useState([]);
-    const [totalItems,setTotalItems] = useState(0);
-    const [totalPrice,setTotalPrecio] = useState(0)
+    const [cartLength,setTotalItems] = useState(0);
+    const [cartPrice,setTotalPrecio] = useState(0)
     
     useEffect(()=>{
-        let cartPrice = cart.reduce((accumulator, currentValue) => {
-            return accumulator + currentValue.quantity * currentValue.item.price
-        }, 0);
+        let cartLength = 0;
+        let cartPrice = 0;
 
-        let cartLength = cart.reduce((accumulator, currentValue) => {
-            return accumulator + currentValue.quantity
-        }, 0);
+        for(let cartItem of cart) {
+            cartLength += cartItem.quantity;
+            cartPrice += cartItem.quantity * cartItem.item.price;
+        }
 
         setTotalItems(cartLength);
         setTotalPrecio(cartPrice)
@@ -63,7 +63,7 @@ function CartProvider ({children}) {
     } 
 
     return (
-        <CartContext.Provider value={{cart, addItem, clear, isInCart, removeItem, totalItems,totalPrice}} >
+        <CartContext.Provider value={{cart, addItem, clear, removeItem, cartPrice, cartLength}} >
             {children}
         </CartContext.Provider>
      )

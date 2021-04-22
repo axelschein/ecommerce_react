@@ -67,6 +67,7 @@ const getItems = (id) => {
 
     const db = getFirestore();
     const itemsCollection = db.collection('items')
+    
 
     const item = itemsCollection.doc(id)
     return item.get();

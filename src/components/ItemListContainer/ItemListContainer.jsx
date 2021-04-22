@@ -67,14 +67,27 @@ import { getFirestore } from "../../firebase";
 export default function ItemListContainer() {
     const [items, setItems] = useState([])
 
-
-    const {categoryId} = useParams([])
+    const {categoryId} = useParams()
 
     useEffect(()=>{  
       const db = getFirestore();
       const itemsCollection = db.collection('items')
       
-      const promise = itemsCollection.get();
+      function filtrado() {
+        if (categoryId){
+          return itemsCollection
+        .where('category', '==', categoryId).limit(3)
+
+        } else {
+          return itemsCollection
+          
+        }
+          
+        
+
+      }
+      const promise = filtrado().get();
+     
     
    
     promise.then((snaptshot)=>{
@@ -87,7 +100,7 @@ export default function ItemListContainer() {
         console.log(snaptshot.docs.map(doc => doc.id))
 
         setItems(snaptshot.docs.map(doc => {
-          return { id:doc.id, ...(doc.data())}
+          return { id:doc.id, ...doc.data()}
           }
         ))
       }
