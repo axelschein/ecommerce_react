@@ -10,16 +10,22 @@ function CartProvider ({children}) {
     const [cartPrice,setTotalPrecio] = useState(0)
     
     useEffect(()=>{
-        let cartLength = 0;
-        let cartPrice = 0;
+        let precio= cart.reduce((acumulador,itemActual)=>{
+            const p = itemActual.quantity * itemActual.item.price
+            return acumulador + p //120
+        },0);
 
-        for(let cartItem of cart) {
-            cartLength += cartItem.quantity;
-            cartPrice += cartItem.quantity * cartItem.item.price;
-        }
+        let totItems= cart.reduce((accumulador, ItemActual)=>{
+            return accumulador + ItemActual.quantity
+        },0);
 
-        setTotalItems(cartLength);
-        setTotalPrecio(cartPrice)
+        // for(let cartItem of cart) {
+        //     totItems += cartItem.quantity;
+        //     precio += cartItem.quantity * cartItem.item.price;
+        // }
+
+        setTotalItems(totItems);
+        setTotalPrecio(precio)
 
     },[cart])
     
@@ -63,7 +69,7 @@ function CartProvider ({children}) {
     } 
 
     return (
-        <CartContext.Provider value={{cart, addItem, clear, removeItem, cartPrice, cartLength}} >
+        <CartContext.Provider value={{cart, addItem, clear, isInCart, removeItem, cartPrice, cartLength}} >
             {children}
         </CartContext.Provider>
      )

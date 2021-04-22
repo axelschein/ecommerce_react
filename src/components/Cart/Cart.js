@@ -15,12 +15,8 @@ export const Cart = () => {
 
     return (
         <div className="cart">
-{/*             
-            {
-            !cart.length ?   
-            <h2>No hay Items en el carrito <Link to='/'>Ir al home </Link> </h2>: (
-            <> */}
-                {cart.map(cartItem => (
+            
+            {cart.map(cartItem => (
                 <div className="cartGrid" key= {cartItem.item.id} >
                     <div className="item-a"> 
                         <img className="imgChica" src={cartItem.item.pictureUrl}  alt="fotoItem" />
@@ -29,7 +25,7 @@ export const Cart = () => {
                     <div className="item-c"> cantidad: {cartItem.quantity} </div>
                     <button className="item-d" onClick={()=> removeItem(cartItem.item.id)}>borrar</button>
                 </div>)
-                )}
+            )}
                 <div> Cantidad:{cartLength} </div> 
                 <div> Total: ${cartPrice}</div> 
                 <button onClick={clear}>Borrar todo</button>         
