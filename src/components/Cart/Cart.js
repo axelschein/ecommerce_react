@@ -1,48 +1,87 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import firebase from 'firebase/app';
+
+import { CartContext } from "../../context/CartContext";
+
+import  {getFirestore} from "../../firebase";
+
+
+
 import "./Cart.css";
-import firebase from 'firebase/app'
-import 'firebase/firebase'
-import { getFirestore } from "../../firebase";
 
 
 export const Cart = () => {
+    const [name,setName] = useState('')
+    const [phone,setPhone] = useState('')
+    const [email,setEmail] = useState('')
 
-    // {
-    //     buyer: {name: 'Juan', phone: 'mi tel',}
-    // }
+    const [idOrden, setIdOrden ] = useState(null)
 
+    
     const {cart,removeItem,cartLength,cartPrice,clear} = useContext(CartContext)
 
-    const generarOrden = () => {
+    const guardarOrden = (e)=>{
+        e.preventDefault();
+        const comprador = { name, phone, email }
+        
+        console.log(comprador)
+
         const db = getFirestore();
 
-        const ordersCol = db.collection('orders')
-        let orden = {}
-        orden.date = firebase.firestore.Timestamp.fromDate(new Date());
+        const orders = db.collection("orders");
 
-        orden.buyer = { name:'Juan', phone:'mi telefono', email:'pepe86@AOL.com.ar' }
-        orden.total = cartPrice;
-        orden.items = cart.map(cartItem => {
-            const id = cartItem.item.id;
-            const title = cartItem.item.title;
-            const price = cartItem.item.price * cart.quantity;
-            return {id, title, price}   
-        })
-
-        ordersCol.add(orden)
-        .then((IdDocumento) => {
-            console.log({IdDocumento})
-        })
-        .catch( err => {
-            console.log(err);
-        })
-        .finally(()=> {
-            console.log('se termino la promesa')
+        const date = firebase.firestore.Timestamp.fromDate(new Date());
+        const items = cart.map(cartItem => {
+            return {id: cartItem.item.id, title: cartItem.item.name, price: cartItem.item.price} 
+        });
+        const  newOrder = {
+            buyer: comprador,
+            items,
+            date,
+            total: cartPrice,
+        };
+        orders.add(newOrder).then(doc=>{
+            setIdOrden(doc.id)
+            
+          
         })
 
-        console.log(orden);
+        // orders
+        // .add({buyer: {comprador, items, date, total:cartPrice} })
+        // .then(doc=>{
+        //     setIdOrden(doc.id)
+        // })
+
+
+        const itemsCollection = db.collection('items')
+        .where(firebase.firestore.FieldPath.documentId(), 'in', cart.map(e => e.item.id))
+
+       
+        const batch = db.batch();
+        const outOfStock = [];
+
+        // por cada item restar del stock la cantidad de el carrito
+
+        itemsCollection.get()
+        .then( collection=>{
+            collection.docs.forEach(docSnapshot => {
+                if (docSnapshot.data().stock >= cart.find(item => item.item.id === docSnapshot.id).quantity)
+                batch.update(docSnapshot.ref, {
+                    stock: docSnapshot.data().stock - cart.find(item => item.item.id === docSnapshot.id).quantity
+                })
+                else {
+                    outOfStock.push({...docSnapshot.data(), id: docSnapshot.id});
+                }
+            })
+
+            batch.commit().then(r => {
+                console.log('resultado batch:', r)
+            })
+        })
+
+        console.log(newOrder)
+    
 
     }
 
@@ -51,8 +90,11 @@ export const Cart = () => {
     if(cartLength === 0) return noItemComp
 
 
+
+
     return (
         <div className="cart">
+            {idOrden? `Orden generada: ${idOrden}`: null}
             
             {cart.map(cartItem => (
                 <div className="cartGrid" key= {cartItem.item.id} >
@@ -68,10 +110,14 @@ export const Cart = () => {
                 <div> Total: ${cartPrice}</div> 
                 <button onClick={clear}>Borrar todo</button>    
 
-                <button onClick={generarOrden}>Finalizar Compra</button>     
-                {/* </>
-            )
-            } */}
+                <form action=""  onSubmit={guardarOrden}>
+
+                    <input className="inputForm" type="text" placeholder="Name" value={name} onChange={(e)=>setName(e.target.value)}/>
+                    <input className="inputForm" type="text" placeholder="Phone" value={phone} onChange={(e)=>setPhone(e.target.value)}/>
+                    <input className="inputForm" type="text" placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+
+                <button type="submit"> Generar orden</button>
+            </form>
 
         </div>
     )
