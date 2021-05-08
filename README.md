@@ -21,4 +21,4 @@ Por otro lado en **src** se encuentra el context y el archivo de firebase.
 
 
 
-<img src="https://gfycat.com/hatefulmilkybanteng.gif" width="40" height="40" />
+<img src="https://gfycat.com/hatefulmilkybanteng" width="640" height="480" />
