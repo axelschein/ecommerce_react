@@ -21,4 +21,4 @@ Por otro lado en **src** se encuentra el context y el archivo de firebase.
 
 
 
-![grab-landing-page](https://thumbs.gfycat.com/HatefulMilkyBanteng-mobile.mp4)
+![grab-landing-page](https://gfycat.com/scalyornerygrayreefshark)
