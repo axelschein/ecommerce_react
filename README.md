@@ -14,6 +14,8 @@ Dentro de la carpeta **src/componentes** están los componentes divididos en car
 
 Por otro lado en **src** se encuentra el context y el archivo de firebase.
 
+Dejo el gif de la app funcionando.
+
 
 
 
