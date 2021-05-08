@@ -12,7 +12,7 @@ export default function ItemDetail({ item }) {
 
     const onAdd = (quantityToAdd) => {
         const count = parseInt(quantityToAdd)
-        console.log('se agrego un item', count)
+        // console.log('se agrego un item', count)
         addItem(item, count)
         setCount(count)
     }

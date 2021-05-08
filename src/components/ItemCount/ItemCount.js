@@ -10,7 +10,7 @@ function ItemCount({ stock, initial, onAdd }) {
     } else setCount(count => count + 1);
   }
   function decrementCount() {
-    if (count <= 0) {
+    if (count <= 1) {
       alert("No hay productos negativos :D");
     } else setCount(count => count - 1);
   }
