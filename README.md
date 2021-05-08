@@ -17,4 +17,4 @@ Por otro lado en **src** se encuentra el context y el archivo de firebase.
 
 
 
-![Alt Text](https://drive.google.com/file/d/1uhJRniJ6jesQjB-J_Aw0yJ-9K3sitlDF/view?usp=sharing)
+![Alt Text](https://gfycat.com/hatefulmilkybanteng)
