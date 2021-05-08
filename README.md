@@ -17,8 +17,8 @@ Por otro lado en **src** se encuentra el context y el archivo de firebase.
 
 
 
-![Alt Text](https://gfycat.com/hatefulmilkybanteng)
+![Alt Text](https://media.giphy.com/media/5c80iTeEZgqp6OUVZx/giphy.gif)
 
 
 
-![grab-landing-page](https://gfycat.com/scalyornerygrayreefshark)
+![grab-landing-page](https://media.giphy.com/media/5c80iTeEZgqp6OUVZx/giphy.gif)
