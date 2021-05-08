@@ -19,3 +19,10 @@ img {
     width: 100%;
    
 }
+.categoryTitle {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3em;
+    text-transform: capitalize;
+    padding-top: 15px;
+
+}

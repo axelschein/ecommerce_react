@@ -20,24 +20,19 @@ body {
 nav {
   padding: 20px 0 40px 0;
   background: #F8F8F8;
-  font-size: 16px;
-  
-  
-  
-  
-  
+  font-size: 16px;  
 }
 .navbar-left {
   float: left;
 }
 .navbar-right {
   float: right;
+  
 }
 
 ul li {
   display: inline;
-  padding-left: 20px;
-  
+  padding-left: 20px; 
 }
 a {
   color: #777777;
@@ -45,7 +40,9 @@ a {
 }
 a:hover {
   color: black;
+  
 }
+
 .contain {
   margin: auto;
   width: 80%;
@@ -61,4 +58,8 @@ a:hover {
     text-align: center;
     vertical-align: middle;
     white-space: nowrap;
+}
+/* CartWidget */
+i:hover {
+  transform: scale(1.2, 1.2);
 }

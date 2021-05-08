@@ -2,23 +2,13 @@ import React, { useState, useEffect } from "react";
     
 const CartContext = React.createContext([]);
     
-
 function CartProvider ({children}) {
 
     const [cart, setCart] = useState([]);
-    const [cartLength,setTotalItems] = useState(0);
+    const [cartLength,setTotalItems] = useState();
     const [cartPrice,setTotalPrecio] = useState(0)
     
     useEffect(()=>{
-
-        // let precio= cart.reduce((acumulador,itemActual)=>{
-        //     const p = itemActual.quantity * itemActual.item.price
-        //     return acumulador + p //120
-        // },0);
-
-        // let totItems= cart.reduce((accumulador, ItemActual)=>{
-        //     return accumulador + ItemActual.quantity
-        // },0);
 
         let totItems = 0;
         let precio = 0;
@@ -33,11 +23,6 @@ function CartProvider ({children}) {
 
     },[cart])
     
-
-    // const cartPrice = () => {
-    //     return 
-    // }
-
     const addItem = (newItem, newQuantity)=>{
 
         const prevCartItem = cart.find(e=> e.item.id === newItem.id)
@@ -53,7 +38,7 @@ function CartProvider ({children}) {
         }
 
         setCart([...newCart, 
-                { item: newItem , quantity: qty  }])
+            { item: newItem , quantity: qty  }])
         
     } // agregar cierta cantidad de un ítem al carrito
 

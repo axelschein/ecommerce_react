@@ -8,14 +8,38 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 8px;
+    margin-top: 8px;
     margin-left: 5px;
+    
     
 }
 
-h2,img, p, 
-.container-img {
+p {
     text-align: center;
     padding-top: 5px;
     height: 80%;    
     width:  80%;
 } 
+
+
+.foto {
+    height: 180px;
+    width: 220px;
+    object-position: center;
+    object-fit: cover;
+   
+}
+
+.buttonCart{
+    width: 220px;
+    height: 22px;
+    border-radius: 7px;
+    color: black;
+    font-size: 1em;
+}
+
+.buttonCart:focus{
+    color: grey;
+    font-size: 1.2em;
+
+}

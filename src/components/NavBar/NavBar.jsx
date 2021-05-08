@@ -9,7 +9,7 @@ export const NavBar = () => {
         <div className="contain">
             <ul className="navbar-left">
               <li>
-                <Link to='/' id="brandName" href="#">Cupcakes commerce</Link>
+                <Link to='/' id="brandName" href="#">Cupcake shop !</Link>
               </li>
             
               <li>
@@ -18,9 +18,10 @@ export const NavBar = () => {
               <li>
                 <Link to='/category/cakes' >Cakes</Link>
               </li>
-              </ul> 
-              <ul className="navbar-right">
+            </ul> 
+            <ul className="navbar-right">
               <li><CartWidget /> </li>
+              
             </ul> 
         </div> 
     </nav>

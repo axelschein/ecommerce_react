@@ -14,11 +14,6 @@ function ItemCount({ stock, initial, onAdd }) {
       alert("No hay productos negativos :D");
     } else setCount(count => count - 1);
   }
-
-  // function agregar() {
-  //   alert(`Agregaste ${count} productos al carrito`);
-  // }
-
   return (
     <div className="botones">
       <button className="botonMenos" onClick={decrementCount}>

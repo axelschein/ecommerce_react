@@ -2,7 +2,7 @@
     justify-content: center;
     width: 100vw;
     display: grid;
-    grid-template-columns: 50px 100px 50px;
+    grid-template-columns: 60px 100px 60px;
     grid-template-rows: 30px 30px;
     grid-template-areas: 
         "botonMenos s botonMas "
@@ -12,11 +12,23 @@
     background-color: lightcyan;
     border: 0px;
     grid-area: botonMenos;
+    border-radius: 5px;
+}
+.botonMenos:focus{
+    color: grey;
+    font-size: 1.2em;
+
 }
 .botonMas {
     border: 0px;
     background-color: lightcyan;
     grid-area: botonMas;
+    border-radius: 5px;
+}
+.botonMas:focus{
+    color: grey;
+    font-size: 1.2em;
+
 }
 span {
     grid-area: s;
@@ -27,10 +39,39 @@ span {
 .Agregar {
     background-color: lightcyan;
     grid-area: Agregar;
-    border: 1px;
+    margin-top: 2px;
+    
+    
+    width: 220px;
+    
+    border-radius: 5px;
+    color: black;
+    font-size: 1em;
+    
+    
+    
+}
+.Agregar:focus{
+    color: grey;
+    font-size: 1.2em;
+
 }
 
 button:hover {
     background-color: lightsalmon;
+
+}
+
+.buttonCart{
+    width: 220px;
+    height: 22px;
+    border-radius: 7px;
+    color: black;
+    font-size: 1em;
+}
+
+.buttonCart:focus{
+    color: grey;
+    font-size: 1.2em;
 
 }

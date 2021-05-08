@@ -7,13 +7,18 @@
     
 
 }
+.cartWrapper{
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
 
+}
 .cart {
     display: flex;
     flex-direction: column;
-    padding-left: 10%;
+    padding-left: 5%;
     height: 80vh;
-    width: 60vw;
+    width: 50vw;
 
 }
 .cartGrid {
@@ -22,7 +27,7 @@
     width: 50vw;
     border-radius: 15px;
     
-    grid-template-columns: 20vw 15vw 10vw 5vw;
+    grid-template-columns: 15vw 10vw 10vw 5vw;
     grid-template-rows: auto;
     grid-template-areas:       
       "header main sidebar footer"
@@ -50,6 +55,50 @@
     margin-top: 58px;
     border-radius: 15px;
 }
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 1% 1% 2% 1%;
+    margin: 1% 10% 2% 10%;
+    height: 50vh;
+    width: 40vw;
+    border: 3px double lightcyan;
+    border-radius: 12px;
+}
 .inputForm {
-    background: chartreuse;
+    background: rgb(241, 192, 179);
+    align-items: center;
+    padding-top: 10px;
+    margin: 12px 1px;
+    margin-bottom: 50px;
+    height: 35px;
+    border-radius: 5px;
+    
+}
+.inputForm:placeholder {
+    padding-left: 4px;
+}
+
+.generarOrden {
+    background-color: lightcyan;
+    grid-area: Agregar;
+    margin-top: 20px;   
+    
+    border-radius: 5px;
+    color: black;
+    font-size: 1em;
+    
+}
+.generarOrden:focus{
+    color: grey;
+    font-size: 1.2em;
+
+}
+
+.miniItemCount {
+ background-color: magenta;
+}
+
+.carritoVacio {
+    padding: 50px;
 }
