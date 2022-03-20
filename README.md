@@ -1,9 +1,7 @@
 
 # Cupcake Shop
 
-This is a e-commerce don in react.js. 
-
-CSS simple layout. 
+This is a React.js e-commerce whit a simple CSS layout.
 
 
 # Components
